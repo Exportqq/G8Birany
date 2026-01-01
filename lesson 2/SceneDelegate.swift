@@ -1,0 +1,34 @@
+import UIKit
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene,
+               willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
+
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        // Создаём окно
+        let window = UIWindow(windowScene: windowScene)
+
+        // Создаём главный экран
+        let mainVC = MainPage() // или MainPageViewController, если переименуешь
+
+        // Оборачиваем в UINavigationController для возможности push
+        let navController = UINavigationController(rootViewController: mainVC)
+
+        // Делаем navController корневым
+        window.rootViewController = navController
+        window.makeKeyAndVisible()
+
+        self.window = window
+    }
+
+    func sceneDidDisconnect(_ scene: UIScene) {}
+    func sceneDidBecomeActive(_ scene: UIScene) {}
+    func sceneWillResignActive(_ scene: UIScene) {}
+    func sceneWillEnterForeground(_ scene: UIScene) {}
+    func sceneDidEnterBackground(_ scene: UIScene) {}
+}
