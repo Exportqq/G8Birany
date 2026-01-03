@@ -125,12 +125,12 @@ final class NextViewController: UIViewController {
     
     private func setupProductCard() {
         
-        productCard.configure(image: UIImage(named: "food1"), title: "Product Name")
-        productCardTwo.configure(image: UIImage(named: "food1"), title: "Product Name")
-        productCardThree.configure(image: UIImage(named: "food1"), title: "Product Name")
-        productCardFour.configure(image: UIImage(named: "food1"), title: "Product Name")
-        productCardFive.configure(image: UIImage(named: "food1"), title: "Product Name")
-        productCardSix.configure(image: UIImage(named: "food1"), title: "Product Name")
+        productCard.configure(image: UIImage(named: "food1"), title: "Awadhi biryani", price: "₹ 460", rating: "4.1")
+        productCardTwo.configure(image: UIImage(named: "food2"), title: "Lucknowi biryani", price: "₹ 560", rating: "4.4")
+        productCardThree.configure(image: UIImage(named: "food3"), title: "Hyderabadi biryani", price: "₹ 440", rating: "4.9")
+        productCardFour.configure(image: UIImage(named: "food4"), title: "Lucknowi biryani", price: "₹ 540", rating: "4.9")
+        productCardFive.configure(image: UIImage(named: "food3"), title: "Hyderabadi biryani", price: "₹ 430", rating: "4.4")
+        productCardSix.configure(image: UIImage(named: "food1"), title: "Awadhi biryani", price: "₹ 460", rating: "4.0")
     }
     
     private func SetupUI() {

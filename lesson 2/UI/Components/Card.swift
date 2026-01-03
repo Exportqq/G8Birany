@@ -27,11 +27,30 @@ class ProductCard: UIView {
     
     private let CardTitle: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = .white
+        label.font = UIFont(name: "MulishRoman-Bold", size: 14)
+        return label
+    }()
+    
+    private let CardPrice: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "MulishRoman-Bold", size: 16)
         return label
     }()
 
+    private let starIcon: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "star")
+        return img
+    }()
+    
+    private let starCount: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "MulishRoman-Bold", size: 16)
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,9 +62,11 @@ class ProductCard: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(image: UIImage?, title: String) {
+    func configure(image: UIImage?, title: String, price: String, rating: String) {
         productImage.image = image
         CardTitle.text = title
+        CardPrice.text = price
+        starCount.text = rating
     }
     
     private func setupUI() {
@@ -53,10 +74,13 @@ class ProductCard: UIView {
         addSubview(CardBlock)
         addSubview(productImage)
         addSubview(CardTitle)
+        addSubview(CardPrice)
+        addSubview(starIcon)
+        addSubview(starCount)
     }
     
     private func setupConstrains() {
-        [productImage, СardBackground, CardBlock, CardTitle].forEach {
+        [productImage, СardBackground, CardBlock, CardTitle, CardPrice, starIcon, starCount].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -75,8 +99,23 @@ class ProductCard: UIView {
             productImage.centerXAnchor.constraint(equalTo: СardBackground.centerXAnchor),
             productImage.widthAnchor.constraint(equalToConstant: 159),
             
-            CardTitle.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 5),
-            CardTitle.leadingAnchor.constraint(equalTo: СardBackground.leadingAnchor, constant: 10)
+            CardTitle.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 10),
+            CardTitle.leadingAnchor.constraint(equalTo: СardBackground.leadingAnchor, constant: 10),
+            
+            CardPrice.topAnchor.constraint(equalTo: CardTitle.bottomAnchor, constant: 10),
+            CardPrice.leadingAnchor.constraint(equalTo: СardBackground.leadingAnchor, constant: 10),
+            CardPrice.widthAnchor.constraint(equalToConstant: 43),
+            CardPrice.heightAnchor.constraint(equalToConstant: 20),
+            
+            starIcon.centerYAnchor.constraint(equalTo: CardPrice.centerYAnchor),
+            starIcon.trailingAnchor.constraint(equalTo: СardBackground.trailingAnchor, constant: -36),
+            starIcon.widthAnchor.constraint(equalToConstant: 16),
+            starIcon.heightAnchor.constraint(equalToConstant: 16),
+            
+            starCount.centerYAnchor.constraint(equalTo: CardPrice.centerYAnchor),
+            starCount.trailingAnchor.constraint(equalTo: СardBackground.trailingAnchor, constant: -10),
+            
+
         ])
     }
 }
